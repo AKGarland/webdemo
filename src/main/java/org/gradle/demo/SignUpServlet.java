@@ -1,5 +1,8 @@
 package main.java.org.gradle.demo;
 
+import main.java.DBConnector;
+import main.java.YeetUpUser;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,8 +13,6 @@ import java.io.IOException;
 @WebServlet(name = "SignUpServlet", urlPatterns = {"sign-up"}, loadOnStartup = 1)
 public class SignUpServlet extends HttpServlet {
 
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String forename = request.getParameter("forename");
@@ -21,17 +22,23 @@ public class SignUpServlet extends HttpServlet {
         String subscriber = request.getParameter("subscribe");
 
         if (forename == null || surname == null || email == null || password == null) {
-            request.getRequestDispatcher("event-fail.jsp").forward(request, response);
+            request.getRequestDispatcher("signup-fail.jsp").forward(request, response);
             return;
         }
 
         request.setAttribute("first-name", forename);
         request.setAttribute("last-name", surname);
-        request.setAttribute("email-address", email);
-        request.setAttribute("password", password);
-        request.setAttribute("subscriber", subscriber);
 
-        request.getRequestDispatcher("response.jsp").forward(request, response);
+        YeetUpUser user = new YeetUpUser(forename, surname, email, password, Boolean.parseBoolean(subscriber));
+
+        boolean success = DBConnector.addUser(user);
+
+        if (success == false) {
+            request.getRequestDispatcher("signup-fail.jsp").forward(request, response);
+            return;
+        }
+
+        request.getRequestDispatcher("signedup.jsp").forward(request, response);
     }
 
 }
