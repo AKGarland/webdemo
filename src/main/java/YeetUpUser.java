@@ -5,9 +5,9 @@ public class YeetUpUser {
     private String surname;
     private String email;
     private String password;
-    private boolean subscribe;
+    private int subscribe;
 
-    public YeetUpUser(String forename, String surname, String email, String password, boolean subscribe) {
+    public YeetUpUser(String forename, String surname, String email, String password, int subscribe) {
         this.forename = forename;
         this.surname = surname;
         this.email = email;
@@ -31,7 +31,7 @@ public class YeetUpUser {
         return password;
     }
 
-    public boolean isSubscribe() {
+    public int getSubscribe() {
         return subscribe;
     }
 }

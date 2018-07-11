@@ -19,9 +19,12 @@ public class SignUpServlet extends HttpServlet {
         String surname = request.getParameter("surname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String subscriber = request.getParameter("subscribe");
+        int subscriber = request.getParameter("subscribe")==null?0:1;
+
+        System.out.println(forename + " " + surname + " " + email + " " + subscriber);
 
         if (forename == null || surname == null || email == null || password == null) {
+            System.out.println("something is null");
             request.getRequestDispatcher("signup-fail.jsp").forward(request, response);
             return;
         }
@@ -29,7 +32,7 @@ public class SignUpServlet extends HttpServlet {
         request.setAttribute("first-name", forename);
         request.setAttribute("last-name", surname);
 
-        YeetUpUser user = new YeetUpUser(forename, surname, email, password, Boolean.parseBoolean(subscriber));
+        YeetUpUser user = new YeetUpUser(forename, surname, email, password, subscriber);
 
         boolean success = DBConnector.addUser(user);
 
