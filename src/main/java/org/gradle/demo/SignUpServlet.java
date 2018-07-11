@@ -29,8 +29,8 @@ public class SignUpServlet extends HttpServlet {
             return;
         }
 
-        request.setAttribute("first-name", forename);
-        request.setAttribute("last-name", surname);
+        request.setAttribute("firstname", forename);
+        request.setAttribute("lastname", surname);
 
         YeetUpUser user = new YeetUpUser(forename, surname, email, password, subscriber);
 
