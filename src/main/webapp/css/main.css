@@ -1,18 +1,15 @@
 body{
-    background-color: rgb(248, 248, 248);
     font-family: Helvetica, Arial, sans-serif;
     font-size: 22px;
     margin: 0;
     padding: 0;
     font-weight: 200;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     }
 
     .navigation-bar {
         width: 100%;  /* i'm assuming full width */
         height: 80px; /* change it to desired width */
-        background-color: #0077ff; /* change to desired color */
+        background-color: #b4b4b4; /* change to desired color */
     }
     .logo {
         display: inline-block;
@@ -28,6 +25,8 @@ body{
         margin-right: 20px;
         height: 80px;        /* if you want it to take the full height of the bar */
         line-height: 80px;    /* if you want it vertically middle of the navbar */
+        font-family: Helvetica, Arial, sans-serif;
+        -webkit-text-fill-color: #0ce9e9
     }
 
     .right {
@@ -36,5 +35,10 @@ body{
         margin-right: 80px;
         height: 80px;        /* if you want it to take the full height of the bar */
         line-height: 80px;    /* if you want it vertically middle of the navbar */
+        font-family: Helvetica, Arial, sans-serif;
     }
     /*#0ce9e9*/
+
+    .pagetitle {
+        text-align: center;
+    }
