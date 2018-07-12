@@ -1,4 +1,4 @@
-package main.java.org.gradle.demo;
+package site.servlets;
 
 
 import javax.servlet.ServletException;

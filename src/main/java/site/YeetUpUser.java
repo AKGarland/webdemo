@@ -1,4 +1,4 @@
-package main.java;
+package site;
 
 public class YeetUpUser {
     private String forename;

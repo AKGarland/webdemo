@@ -1,7 +1,7 @@
-package main.java.org.gradle.demo;
+package site.servlets;
 
-import main.java.DBConnector;
-import main.java.YeetUpUser;
+import site.DBConnector;
+import site.YeetUpUser;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
